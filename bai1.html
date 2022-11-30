@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ điện tử</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* background: #040100;
+            background: -webkit-linear-gradient(to right, #063ce0, #000000);
+            background: linear-gradient(to right, #e713b9, #190701); */
+        }
+        #dong_ho h2{
+            position: relative;
+            display:block;
+            color:rgb(234, 230, 18);
+            text-align: center;
+            margin:10px 0;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+        }#dong_ho #thoi_gian{
+            display:flex;
+        }
+        #dong_ho #thoi_gian div{
+            position: relative;
+            margin: 0 5px;
+        }
+        #dong_ho #thoi_gian div span{
+            position: relative;
+            display:block;
+            width:200px;
+            height: 160px;
+            background: #e713b9;
+            color: #fff;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            z-index:3;
+            box-shadow: 0 0 0 1px rgba(0,0,0,o,2);
+        }
+        #dong_ho #thoi_gian span:nth-child(2){
+            height: 65px;
+            font-size: 2rem;
+            letter-spacing: 0.3rem;
+            z-index: 2;
+            box-shadow: none;
+            background: rgba(0, 0, 0, 0.576);
+            text-transform: uppercase;
+        }
+        #dong_ho #thoi_gian div:last-child span {
+            background: #010d30;
+        }
+        #dong_ho #thoi_gian div:last-child span:nth-child(2) {
+            background: rgb(56, 3, 69);
+        }
+        #dong_ho #thoi_gian div{
+            position: relative;
+            margin: 0 5px;
+            -webkit-box-reflect: below 10px linear-gradient(transparent, #0004);
+        }
+        .hero-image {
+            background: url(/zed-galaxy-slayer-zed.gif) no-repeat center;
+            background-size: cover;
+            width: 1500px;
+            height: 500px;
+            position: relative;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-image">
+    <div id="dong_ho">
+        <h2>Hà Nội, thứ ba, 29/11/2022</h2>
+        <div id="thoi_gian">
+            <div>
+                <span id="gio">00</span><span>Giờ</span>
+            </div>
+            <div>
+                <span id="phut">00</span><span>Phút</span>
+            </div>
+            <div>
+                <span id="giay">00</span><span>Giây</span>
+            </div>
+        </div>
+        <audio controls autoplayid="bai_hat">
+            <source src="/Gian Don - NHA_ Ry2C.mp3" type="audio/mp3">
+          </audio>
+    </div>
+    </div>
+
+    <script>
+        function Dong_ho() {
+            var gio = document.getElementById("gio");
+            var phut = document.getElementById("phut");
+            var giay = document.getElementById("giay");
+            var Gio_hien_tai = new Date().getHours();
+            var Phut_hien_tai = new Date().getMinutes();
+            var Giay_hien_tai = new Date().getSeconds();
+            gio.innerHTML = Gio_hien_tai;
+            phut.innerHTML = Phut_hien_tai;
+            giay.innerHTML = Giay_hien_tai;
+        }
+        var Dem_gio = setInterval(Dong_ho, 1000);
+
+        function audio() {
+            var audio = document.getElementById("bai_hat");
+        }
+    </script>
+</body>
+</html>
